@@ -10,6 +10,15 @@ const getPost = (res) => {
     })
 }
 
+const createPost = (data, res) => {
+    Models.Posts.create(data).then(function (data) {
+        res.send({ result: 200 , data: data})
+    }).catch(err => {
+        throw err
+    })
+}
+
 module.exports = {
-    getPost
+    getPost,
+    createPost
 }
